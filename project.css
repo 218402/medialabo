@@ -7,6 +7,11 @@ table{
     background-color: rgb(175, 218, 253,40%);
     border:2px solid hsl(216, 47%, 40%); 
 }
+th{
+    padding: 10px;
+    border:2px solid hsl(216, 47%, 40%);
+
+}
 /*td.dan{
     background-color: rgb(175, 218, 253,40%);
 }
