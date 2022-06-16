@@ -1,0 +1,46 @@
+body{
+    width: 60em;
+    margin: 0 auto;
+    background-color: rgb(252, 244, 235);
+}
+h1{
+    color: rgb(51, 49, 158);
+    border-bottom: 20px solid hsl(216, 47%, 40%);
+    border-top: 20px solid hsl(216, 47%, 40%);
+    font-family: system-ui;
+    text-align: center;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    font-size: 3.2em;
+    background-color: rgb(175, 218, 253,40%);
+}
+h2{
+    color: rgb(51, 49, 158);
+    font-size: 1.6em;
+    text-align: center;
+    border-bottom: 5px double hsl(216, 47%, 40%);
+    padding-top: 4%;
+    padding-bottom: 2%;
+}
+h3{
+    padding-top: 2%;
+    padding-bottom: 1%;
+    padding-left: 1%;
+    color: rgb(51, 49, 158);
+    border-bottom: 2px solid hsl(216, 47%, 40%);
+}
+h4{
+    padding-left: 2%;
+}
+p{
+    padding-left: 4%;
+}
+a:link{
+    color: rgb(86, 187, 255);
+}
+a:visited{
+    color: rgb(107, 90, 168);
+}
+a:hover{
+    color: rgb(60, 124, 103);
+}
