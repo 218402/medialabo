@@ -1,0 +1,15 @@
+body{
+    width: 60em;
+    margin: 0 auto;
+    background-color: rgb(252, 244, 235);
+}
+table{
+    background-color: rgb(175, 218, 253,40%);
+    border:2px solid hsl(216, 47%, 40%); 
+}
+/*td.dan{
+    background-color: rgb(175, 218, 253,40%);
+}
+td.shuang{
+    background-color: rgba(137, 180, 216, 0.4);
+}*/
