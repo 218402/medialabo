@@ -8,9 +8,25 @@
   <body>
     <h1>NHK の番組表</h1>
     <h2>検索キー</h2>
-    <b>検索キー	検索キーの説明	取りうる値	備考</b>
-    <p>service	チャンネル	g1, e1	g1はNHK総合1，e1はEテレ1</p>
-    <p>genre	ジャンル	取りうる値は次のとおり</p>	
+    <table>
+      <ab>
+        <th>検索キー</th>
+        <th>検索キーの説明</th>
+        <th>取りうる値</th>
+        <th>備考</th>
+      </ab>
+      <tr>
+        <td>service</td>
+        <td>チャンネル</td>
+        <td>g1, e1</td>
+        <td>g1はNHK総合1，e1はEテレ1</td>
+      </tr>
+      <tr>
+        <td>genre</td>
+        <td>ジャンル</td>
+        <td>取りうる値は次のとおり</td>
+      </tr>
+    </table>	
     <p>ジャンルの取りうる値と意味:</p>
     <ul>
         <li>0000 ... ニュース・報道</li>
@@ -27,16 +43,39 @@
         <li>1100 ... 福祉</li>
     </ul>
     <h2>検索結果のデータ項目</h2>
-    
-        <b>項目名	項目の説明</b>
-        <p>start_time	番組開始時刻</p>
-        <p>end_time	番組終了時刻</p>
-        <p>service.name	チャンネル</p>
-        <p>title	番組名</p>
-        <p>subtitle	番組サブタイトル</p>
-        <p>content	番組説明文</p>
-        <p>act	出演者</p>    
-    
-
+    <table>
+      <ab>
+        <th>項目名</th>
+        <th>項目の説明</th>
+      </ab>
+      <tr>
+        <td>start_time</td>
+        <td>番組開始時刻</td>
+      </tr>
+      <tr>
+        <td>end_time</td>
+        <td>番組終了時刻</td>
+      </tr>
+      <tr>
+        <td>service.name</td>
+        <td>チャンネル</td>
+      </tr>
+      <tr>
+        <td>title</td>
+        <td>番組名</td>
+      </tr>
+      <tr>
+        <td>subtitle</td>
+        <td>番組サブタイトル</td>
+      </tr>
+      <tr>
+        <td>content</td>
+        <td>番組説明文</td>
+      </tr>
+      <tr>
+        <td>act</td>
+        <td>出演者</td>
+      </tr>
+    </table>
   </body>
 </html>
