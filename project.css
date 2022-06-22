@@ -1,3 +1,4 @@
+
 body{
     width: 60em;
     margin: 0 auto;
@@ -6,15 +7,40 @@ body{
 table{
     background-color: rgb(175, 218, 253,40%);
     border:2px solid hsl(216, 47%, 40%); 
+    border-collapse: collapse;
+    margin:0 auto;
 }
 th{
     padding: 10px;
+    background-color:rgb(200, 200, 255);
     border:2px solid hsl(216, 47%, 40%);
-
+    text-align: center;
 }
-/*td.dan{
+td{
+    padding: 5px;
+    border:2px solid hsl(216, 47%, 40%);
+    background-color:rgb(234, 234, 255);
+    text-align: center;
+}
+h1{
+    color: rgb(51, 49, 158);
+    border-bottom: 15px solid hsl(216, 47%, 40%);
+    border-top: 15px solid hsl(216, 47%, 40%);
+    font-size: 1.6em;
+    text-align: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    font-size: 3.2em;
     background-color: rgb(175, 218, 253,40%);
 }
-td.shuang{
-    background-color: rgba(137, 180, 216, 0.4);
-}*/
+h2{
+    padding-top: 2%;
+    padding-bottom: 1%;
+    padding-left: 1%;
+    color: rgb(51, 49, 158);
+    border-bottom: 5px double hsl(216, 47%, 40%);
+    text-align: center;
+}
+p, ul{
+    padding-left: 20%;
+}
