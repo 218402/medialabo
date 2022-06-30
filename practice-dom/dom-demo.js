@@ -1,5 +1,5 @@
 let eu = document.querySelector('li#EU');
-eu.remove()
+eu.remove();
 let ul = document.querySelector('ul');
 let li;
 li = document.createElement('li');
