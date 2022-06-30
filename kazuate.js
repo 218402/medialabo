@@ -9,9 +9,9 @@ let kaisu = 0;
 
 // 将来: ボタンを押したら， hantei() を呼び出すように修正する
 hantei();
-hantei();
-hantei();
-hantei();
+//hantei();
+//hantei();
+//hantei();
 
 // ボタンを押した後の処理をする関数 hantei() の定義
 function hantei() {
@@ -19,18 +19,30 @@ function hantei() {
     
     kaisu++;
     console.log(kaisu+"回目の予想："+yoso)
+    let b;
     if(kaisu<4){
         if(yoso===kotae){
             console.log("正解です．おめでとう!");
+            b="正解です．おめでとう!";
             kaisu=kaisu+3;
         }else if(yoso>kotae){
             console.log("まちがい．答えはもっと小さいですよ");
+            b="まちがい．答えはもっと小さいですよ";
         }else if(yoso<kotae){
             console.log("まちがい．答えはもっと大きいですよ");
+            b="まちがい．答えはもっと大きいですよ";
         }  
     }else if(kaisu>=4){
         console.log("答えは"+kotae+"でした．すでにゲームは終わっています");
     }
+    let presult =document.querySelector('p#result');
+    let a= kaisu+'回目の予想: '+yoso;
+    p=document.createElement('p');
+    presult.insertAdjacentElement('beforeend',p);
+    p.textContent = a;
+    p2=document.createElement('p');
+    presult.insertAdjacentElement('beforeend',p2);
+    p2.textContent = b;
 }
     // 課題3-1：ここの判定処理を作成する．
     //        ページに表示する方法はまだ習っていないので
