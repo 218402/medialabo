@@ -16,35 +16,34 @@ hantei();
 // ボタンを押した後の処理をする関数 hantei() の定義
 function hantei() {
     let yoso = 4;       // 第5回課題:テキストボックスの数値をここに代入
-    
+    let result = document.querySelector('p#result');
+    let answer = document.querySelector('p#answer');
+
     kaisu++;
-    console.log(kaisu+"回目の予想："+yoso)
-    //let b;
+    console.log(kaisu+"回目の予想："+yoso);
+
+    let b = kaisu + '回目の予想: ' + yoso;
+    answer.textContent = b;
+    
     if(kaisu<4){
         if(yoso===kotae){
             console.log("正解です．おめでとう!");
-            b="正解です．おめでとう!";
+            result.textContent = '正解です．おめでとう!'
+            
             kaisu=kaisu+3;
         }else if(yoso>kotae){
             console.log("まちがい．答えはもっと小さいですよ");
-            b="まちがい．答えはもっと小さいですよ";
+            result.textContent = 'まちがい．答えはもっと小さいですよ!'
+            
         }else if(yoso<kotae){
             console.log("まちがい．答えはもっと大きいですよ");
-            b="まちがい．答えはもっと大きいですよ";
+            result.textContent = 'まちがい．答えはもっと大きいですよ!'
+            
         }  
     }else if(kaisu>=4){
         console.log("答えは"+kotae+"でした．すでにゲームは終わっています");
+        result.textContent = '答えは ' + kotae + ' でした．すでにゲームは終わっています';
     }
-    
-    let presult =document.querySelector('p#result');
-    let a= kaisu+'回目の予想: '+yoso;
-    p=document.createElement('p');
-    presult.insertAdjacentElement('beforeend',p);
-    p.textContent = a;
-    p2=document.createElement('p');
-    presult.insertAdjacentElement('beforeend',p2);
-    p2.textContent = b;
-    
 }
     // 課題3-1：ここの判定処理を作成する．
     //        ページに表示する方法はまだ習っていないので
