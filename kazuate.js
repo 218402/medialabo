@@ -19,7 +19,7 @@ function hantei() {
     
     kaisu++;
     console.log(kaisu+"回目の予想："+yoso)
-    let b;
+    //let b;
     if(kaisu<4){
         if(yoso===kotae){
             console.log("正解です．おめでとう!");
@@ -35,6 +35,7 @@ function hantei() {
     }else if(kaisu>=4){
         console.log("答えは"+kotae+"でした．すでにゲームは終わっています");
     }
+    
     let presult =document.querySelector('p#result');
     let a= kaisu+'回目の予想: '+yoso;
     p=document.createElement('p');
@@ -43,6 +44,7 @@ function hantei() {
     p2=document.createElement('p');
     presult.insertAdjacentElement('beforeend',p2);
     p2.textContent = b;
+    
 }
     // 課題3-1：ここの判定処理を作成する．
     //        ページに表示する方法はまだ習っていないので
