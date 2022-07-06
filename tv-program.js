@@ -82,3 +82,16 @@ let data = {
 /////////////////// 課題3-2 はここから書き始めよう
 console.log("みんなのうた「ごっつぉさま」／「超変身！ミネラルフォーマーズ」");
 console.log("パラスポーツ×アニメ「アニ×パラ」▽パラアルペンスキーテーマ曲江口寿史×ＡＣＣ");
+
+//課題4-2
+let title = document.querySelector('td#title');
+title.textContent ="みんなのうた「ごっつぉさま」／「超変身！ミネラルフォーマーズ」";
+
+let start_time= document.querySelector('td#start_time');
+start_time.textContent ="2022-03-04T04:35:00+09:00";
+
+let end_time = document.querySelector('td#end_time');
+end_time.textContent ="2022-03-04T04:40:00+09:00";
+
+let service_name = document.querySelector('td#service_name');
+service_name.textContent ="ＮＨＫ総合１";
