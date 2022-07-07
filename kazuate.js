@@ -15,7 +15,6 @@ let kaisu = 0;
 let yoso = document.querySelector('#print');
 yoso.addEventListener('click', hantai);
 
-
 function hantai() {
     kaisu++;
 	let i = document.querySelector('input[name="number"]');
@@ -25,7 +24,7 @@ function hantai() {
     answer.textContent = kaisu + '回目の予想: ' + a;
     
     if(kaisu<4){
-        if(a===kotae){
+        if(a==kotae){
             console.log("正解です．おめでとう!");
             result.textContent = '正解です．おめでとう!'
             kaisu=kaisu+3;
