@@ -95,3 +95,6 @@ end_time.textContent ="2022-03-04T04:40:00+09:00";
 
 let service_name = document.querySelector('td#service_name');
 service_name.textContent ="ＮＨＫ総合１";
+
+let subtitle = document.querySelector('td#subtitle');
+subtitle.textContent ="「ごっつぉさま」うた：須貝智郎／「超変身！ミネラルフォーマーズ」うた：鬼龍院翔ｆｒｏｍゴールデンボンバー";
