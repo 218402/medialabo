@@ -9,27 +9,22 @@
 
   <body>
     <h1>NHK の番組表</h1>
+
     <h2>検索キー</h2>
-    <table>
-      <tr>
-        <th>検索キー</th>
-        <th>検索キーの説明</th>
-        <th>取りうる値</th>
-        <th>備考</th>
-      </tr>
-      <tr>
-        <td>service</td>
-        <td>チャンネル</td>
-        <td>g1, e1</td>
-        <td>g1はNHK総合1、e1はEテレ1</td>
-      </tr>
-      <tr>
-        <td>genre</td>
-        <td>ジャンル</td>
-        <td>取りうる値は次のとおり</td>
-        <td></td>
-      </tr>
-    </table>	
+    <p><br></p>
+
+        <from>
+            <label for="service">チャンネルを入力</label>
+            <select type="" name="service" id="service">
+                <option value="g1">NHK総合1</option>
+                <option value="e1">Eテレ1</option>
+            </select>
+            <input type="text" name="genre" id="genre" placeholder="4桁の数字を入力.">
+            <button id="search">検索</button>
+        </from>
+
+    <p><br></p>
+    
     <p>ジャンルの取りうる値と意味:</p>
     <ul>
         <li>0000 ... ニュース・報道</li>
@@ -45,6 +40,8 @@
         <li>1000 ... 趣味・教育</li>
         <li>1100 ... 福祉</li>
     </ul>
+    
+    
     <h2>検索結果のデータ項目</h2>
     <table>
       <ab>
@@ -87,6 +84,8 @@
         <td>出演者</td>
         <td id="act"></td>
       </tr>
+
+      
     </table>
   </body>
 </html>

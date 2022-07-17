@@ -84,17 +84,53 @@ console.log("みんなのうた「ごっつぉさま」／「超変身！ミネ�
 console.log("パラスポーツ×アニメ「アニ×パラ」▽パラアルペンスキーテーマ曲江口寿史×ＡＣＣ");
 
 //課題4-2
-let title = document.querySelector('td#title');
-title.textContent ="みんなのうた「ごっつぉさま」／「超変身！ミネラルフォーマーズ」";
+let b = document.querySelector('button#search').addEventListener('click', print);
+function print() {
+  let a = document.querySelector('select[name="service"]').value;
+  console.log(a);
+  
+  if(a=='g1') {
+    let title = document.querySelector('td#title');
+    title.textContent = data.list.g1;
 
-let start_time= document.querySelector('td#start_time');
-start_time.textContent ="2022-03-04T04:35:00+09:00";
+    let start_time= document.querySelector('td#start_time');
+    start_time.textContent ="2022-03-04T04:35:00+09:00";
 
-let end_time = document.querySelector('td#end_time');
-end_time.textContent ="2022-03-04T04:40:00+09:00";
+    let end_time = document.querySelector('td#end_time');
+    end_time.textContent ="2022-03-04T04:40:00+09:00";
 
-let service_name = document.querySelector('td#service_name');
-service_name.textContent ="ＮＨＫ総合１";
+    let service_name = document.querySelector('td#service_name');
+    service_name.textContent ="ＮＨＫ総合１";
 
-let subtitle = document.querySelector('td#subtitle');
-subtitle.textContent ="「ごっつぉさま」うた：須貝智郎／「超変身！ミネラルフォーマーズ」うた：鬼龍院翔ｆｒｏｍゴールデンボンバー";
+    let subtitle = document.querySelector('td#subtitle');
+    subtitle.textContent ="「ごっつぉさま」うた：須貝智郎／「超変身！ミネラルフォーマーズ」うた：鬼龍院翔ｆｒｏｍゴールデンボンバー";
+
+    let content = document.querySelector('td#content');
+    content.textContent ="「ごっつぉさま」うた：須貝智郎／「超変身！ミネラルフォーマーズ」うた：鬼龍院翔ｆｒｏｍゴールデンボンバー";
+
+    let act = document.querySelector('td#act');
+    act.textContent ="";
+
+  }if(a=='e1') {
+    let title = document.querySelector('td#title');
+    title.textContent ="パラスポーツ×アニメ「アニ×パラ」▽パラアルペンスキーテーマ曲江口寿史×ＡＣＣ";
+
+    let start_time= document.querySelector('td#start_time');
+    start_time.textContent ="2022-03-04T23:05:00+09:00";
+
+    let end_time = document.querySelector('td#end_time');
+    end_time.textContent ="2022-03-04T23:10:00+09:00";
+
+    let service_name = document.querySelector('td#service_name');
+    service_name.textContent ="ＮＨＫ総合１";
+
+    let subtitle = document.querySelector('td#subtitle');
+    subtitle.textContent ="「ごっつぉさま」うた：須貝智郎／「超変身！ミネラルフォーマーズ」うた：鬼龍院翔ｆｒｏｍゴールデンボンバー";
+
+    let content = document.querySelector('td#content');
+    content.textContent ="「ごっつぉさま」うた：須貝智郎／「超変身！ミネラルフォーマーズ」うた：鬼龍院翔ｆｒｏｍゴールデンボンバー";
+
+    let act = document.querySelector('td#act');
+    act.textContent ="";
+  }
+}
