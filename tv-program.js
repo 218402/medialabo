@@ -84,6 +84,7 @@ console.log("みんなのうた「ごっつぉさま」／「超変身！ミネ�
 console.log("パラスポーツ×アニメ「アニ×パラ」▽パラアルペンスキーテーマ曲江口寿史×ＡＣＣ");
 
 //課題4-2
+/*
 let b = document.querySelector('button#search').addEventListener('click', print);
 function print() {
   let a = document.querySelector('select[name="service"]').value;
@@ -110,27 +111,87 @@ function print() {
 
     let act = document.querySelector('td#act');
     act.textContent ="";
-
-  }if(a=='e1') {
-    let title = document.querySelector('td#title');
-    title.textContent ="パラスポーツ×アニメ「アニ×パラ」▽パラアルペンスキーテーマ曲江口寿史×ＡＣＣ";
-
-    let start_time= document.querySelector('td#start_time');
-    start_time.textContent ="2022-03-04T23:05:00+09:00";
-
-    let end_time = document.querySelector('td#end_time');
-    end_time.textContent ="2022-03-04T23:10:00+09:00";
-
-    let service_name = document.querySelector('td#service_name');
-    service_name.textContent ="ＮＨＫ総合１";
-
-    let subtitle = document.querySelector('td#subtitle');
-    subtitle.textContent ="「ごっつぉさま」うた：須貝智郎／「超変身！ミネラルフォーマーズ」うた：鬼龍院翔ｆｒｏｍゴールデンボンバー";
-
-    let content = document.querySelector('td#content');
-    content.textContent ="「ごっつぉさま」うた：須貝智郎／「超変身！ミネラルフォーマーズ」うた：鬼龍院翔ｆｒｏｍゴールデンボンバー";
-
-    let act = document.querySelector('td#act');
-    act.textContent ="";
   }
+}*/
+let b = document.querySelector('button#search').addEventListener('click', print);
+
+// 通信を開始する処理
+function print() {
+	// URL を設定
+  let service=document.querySelector('select[name="service"]').value;
+  //console.log(service);
+  let genre=document.querySelector('input[name="genre"]').value;
+  
+	let url = 'https://www.nishita-lab.org/web-contents/jsons/nhk/'+service+'-'+genre+'-j.json';
+  
+
+	// 通信開始
+	axios.get(url)
+		.then(showResult)
+		.catch(showError)
+		.then(finish);
+}
+
+// 通信が成功した時の処理
+function showResult(resp) {
+	// サーバから送られてきたデータを出力
+	//let data = resp.data;
+  let service=document.querySelector('select[name="service"]').value;
+
+  let start_time= document.querySelector('td#start_time');
+  let end_time = document.querySelector('td#end_time');
+  let service_name = document.querySelector('td#service_name');
+  let title = document.querySelector('td#title');
+  let subtitle = document.querySelector('td#subtitle');
+  let content = document.querySelector('td#content');
+  let act = document.querySelector('td#act');
+  
+
+	// data が文字列型なら，オブジェクトに変換する
+	if (typeof data === 'string') {
+		data = JSON.parse(data);
+	}
+
+	// data をコンソールに出力
+	console.log(resp.data);
+  if(service=='g1') {
+    for(let i =0;i<resp.data.list.g1.length;i++){
+      td=document.createElement('td');
+      start_time.textContent = resp.data.list.g1[i].start_time;
+      td.insertAdjacentElement('beforeend', start_time);
+    end_time.textContent = resp.data.list.g1[0].end_time;
+    service_name.textContent = resp.data.list.g1[0].service.name;
+    title.textContent = resp.data.list.g1[0].title;
+    subtitle.textContent = resp.data.list.g1[0].subtitle;
+    content.textContent = resp.data.list.g1[0].content;
+    act.textContent = resp.data.list.g1[0].act;
+	// data.x を出力
+    }
+  }else if(service==='e1'){
+    start_time.textContent = resp.data.list.e1[0].start_time;
+    end_time.textContent = resp.data.list.e1[0].end_time;
+    service_name.textContent = resp.data.list.e1[0].service.name;
+    title.textContent = resp.data.list.e1[0].title;
+    subtitle.textContent = resp.data.list.e1[0].subtitle;
+    content.textContent = resp.data.list.e1[0].content;
+    act.textContent = resp.data.list.e1[0].act;
+    
+  }
+}
+
+// 通信エラーが発生した時の処理
+function showError(err) {
+  start_time.textContent = '情報がありません。';
+  end_time.textContent = '情報がありません。';
+  service_name.textContent = '情報がありません。';
+  title.textContent = '情報がありません。';
+  subtitle.textContent = '情報がありません。';
+  content.textContent = '情報がありません。';
+  act.textContent = '情報がありません。';
+	console.log(err);
+}	
+
+// 通信の最後にいつも実行する処理
+function finish() {
+	console.log('Ajax 通信が終わりました');
 }
