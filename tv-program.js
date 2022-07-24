@@ -155,10 +155,12 @@ function showResult(resp) {
 	// data をコンソールに出力
 	console.log(resp.data);
   if(service=='g1') {
-    for(let i =0;i<resp.data.list.g1.length;i++){
+    /*for(let i =0;i<resp.data.list.g1.length;i++){
       td=document.createElement('td');
       start_time.textContent = resp.data.list.g1[i].start_time;
       td.insertAdjacentElement('beforeend', start_time);
+    }*/
+    start_time.textContent = resp.data.list.g1[0].start_time;
     end_time.textContent = resp.data.list.g1[0].end_time;
     service_name.textContent = resp.data.list.g1[0].service.name;
     title.textContent = resp.data.list.g1[0].title;
@@ -166,7 +168,6 @@ function showResult(resp) {
     content.textContent = resp.data.list.g1[0].content;
     act.textContent = resp.data.list.g1[0].act;
 	// data.x を出力
-    }
   }else if(service==='e1'){
     start_time.textContent = resp.data.list.e1[0].start_time;
     end_time.textContent = resp.data.list.e1[0].end_time;
