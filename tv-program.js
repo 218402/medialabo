@@ -84,37 +84,9 @@ console.log("みんなのうた「ごっつぉさま」／「超変身！ミネ�
 console.log("パラスポーツ×アニメ「アニ×パラ」▽パラアルペンスキーテーマ曲江口寿史×ＡＣＣ");
 
 //課題4-2
-/*
+
 let b = document.querySelector('button#search').addEventListener('click', print);
-function print() {
-  let a = document.querySelector('select[name="service"]').value;
-  console.log(a);
-  
-  if(a=='g1') {
-    let title = document.querySelector('td#title');
-    title.textContent = data.list.g1;
-
-    let start_time= document.querySelector('td#start_time');
-    start_time.textContent ="2022-03-04T04:35:00+09:00";
-
-    let end_time = document.querySelector('td#end_time');
-    end_time.textContent ="2022-03-04T04:40:00+09:00";
-
-    let service_name = document.querySelector('td#service_name');
-    service_name.textContent ="ＮＨＫ総合１";
-
-    let subtitle = document.querySelector('td#subtitle');
-    subtitle.textContent ="「ごっつぉさま」うた：須貝智郎／「超変身！ミネラルフォーマーズ」うた：鬼龍院翔ｆｒｏｍゴールデンボンバー";
-
-    let content = document.querySelector('td#content');
-    content.textContent ="「ごっつぉさま」うた：須貝智郎／「超変身！ミネラルフォーマーズ」うた：鬼龍院翔ｆｒｏｍゴールデンボンバー";
-
-    let act = document.querySelector('td#act');
-    act.textContent ="";
-  }
-}*/
-let b = document.querySelector('button#search').addEventListener('click', print);
-
+let table = document.querySelector('tbody#table');
 // 通信を開始する処理
 function print() {
 	// URL を設定
@@ -135,17 +107,11 @@ function print() {
 // 通信が成功した時の処理
 function showResult(resp) {
 	// サーバから送られてきたデータを出力
-	//let data = resp.data;
-  let service=document.querySelector('select[name="service"]').value;
 
-  let start_time= document.querySelector('td#start_time');
-  let end_time = document.querySelector('td#end_time');
-  let service_name = document.querySelector('td#service_name');
-  let title = document.querySelector('td#title');
-  let subtitle = document.querySelector('td#subtitle');
-  let content = document.querySelector('td#content');
-  let act = document.querySelector('td#act');
-  
+	let data = resp.data;
+
+  let service=document.querySelector('select[name="service"]').value;
+  //let genre=document.querySelector('input[name="genre"]').value;
 
 	// data が文字列型なら，オブジェクトに変換する
 	if (typeof data === 'string') {
@@ -154,41 +120,81 @@ function showResult(resp) {
 
 	// data をコンソールに出力
 	console.log(resp.data);
-  if(service=='g1') {
-    /*for(let i =0;i<resp.data.list.g1.length;i++){
-      td=document.createElement('td');
-      start_time.textContent = resp.data.list.g1[i].start_time;
-      td.insertAdjacentElement('beforeend', start_time);
-    }*/
-    start_time.textContent = resp.data.list.g1[0].start_time;
-    end_time.textContent = resp.data.list.g1[0].end_time;
-    service_name.textContent = resp.data.list.g1[0].service.name;
-    title.textContent = resp.data.list.g1[0].title;
-    subtitle.textContent = resp.data.list.g1[0].subtitle;
-    content.textContent = resp.data.list.g1[0].content;
-    act.textContent = resp.data.list.g1[0].act;
-	// data.x を出力
-  }else if(service==='e1'){
-    start_time.textContent = resp.data.list.e1[0].start_time;
-    end_time.textContent = resp.data.list.e1[0].end_time;
-    service_name.textContent = resp.data.list.e1[0].service.name;
-    title.textContent = resp.data.list.e1[0].title;
-    subtitle.textContent = resp.data.list.e1[0].subtitle;
-    content.textContent = resp.data.list.e1[0].content;
-    act.textContent = resp.data.list.e1[0].act;
-    
+
+  let td = document.querySelectorAll('td');
+  for (let t of td) {
+    t.remove();
+  }
+  let tr = document.querySelectorAll('tr');
+  for (let T of tr) {
+    T.remove();
+  }
+
+  let kaisu = 0;
+  let setsume=['番号','番組開始時刻','番組終了時刻','チャンネル','番組名','番組サブタイトル','番組説明文','出演者'];
+
+  if(data.list[service]) {
+    for (let n of data.list[service]) {
+      kaisu++
+
+      tr = document.createElement('tr');
+      table.insertAdjacentElement('beforeend', tr);
+      for(let s of setsume) {
+        th = document.createElement('th');
+        th.textContent = s;
+        tr.insertAdjacentElement('beforeend', th);
+      }
+
+      if (data!==null) {
+        let yoko = document.createElement('tr');
+        table.insertAdjacentElement('beforeend', yoko);
+
+        let suji = document.createElement('td');
+        suji.textContent = kaisu;
+        table.insertAdjacentElement('beforeend', suji);
+
+        let start_time = document.createElement('td');
+        start_time.textContent = n.start_time;
+        table.insertAdjacentElement('beforeend', start_time);
+
+        let end_time = document.createElement('td');
+        end_time.textContent = n.end_time;
+        table.insertAdjacentElement('beforeend', end_time);
+
+        let service_name = document.createElement('td');
+        service_name.textContent = n.service.name;
+        table.insertAdjacentElement('beforeend', service_name);
+
+        let title = document.createElement('td');
+        title.textContent = n.title;
+        table.insertAdjacentElement('beforeend', title);
+
+        let subtitle = document.createElement('td');
+        subtitle.textContent = n.subtitle;
+        table.insertAdjacentElement('beforeend', subtitle);
+
+        let content = document.createElement('td');
+        content.textContent = n.content;
+        table.insertAdjacentElement('beforeend', content);
+
+        let act = document.createElement('td');
+        act.textContent = n.act;
+        table.insertAdjacentElement('beforeend', act);
+
+      }else if(data===null){
+        let nasi = document.createElement('p');
+        nasi.textContent ='合う情報がありません。';
+        table.insertAdjacentElement('beforeend', nasi);
+      }
+    }
   }
 }
 
 // 通信エラーが発生した時の処理
 function showError(err) {
-  start_time.textContent = '情報がありません。';
-  end_time.textContent = '情報がありません。';
-  service_name.textContent = '情報がありません。';
-  title.textContent = '情報がありません。';
-  subtitle.textContent = '情報がありません。';
-  content.textContent = '情報がありません。';
-  act.textContent = '情報がありません。';
+  let era = document.createElement('p');
+  era.textContent ='合う情報がありません。';
+  table.insertAdjacentElement('beforeend', era);
 	console.log(err);
 }	
 

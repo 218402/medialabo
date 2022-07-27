@@ -1,17 +1,11 @@
 
 body{
-    width: 60em;
+    width: 75em;
     margin: 0 auto;
     background-color: rgb(252, 244, 235);
 }
-table{
-    background-color: rgb(175, 218, 253,40%);
-    border:2px solid hsl(216, 47%, 40%); 
-    border-collapse: collapse;
-    margin:0 auto;
-}
 th{
-    padding: 15px;
+    padding: 1px;
     background-color:rgb(200, 200, 255);
     border:2px solid hsl(216, 47%, 40%);
     text-align: center;
@@ -42,4 +36,12 @@ h2{
 }
 p, ul{
     padding-left: 20%;
+}
+div.zentai{
+    display: flex;          
+    flex-direction: row;    
+    width:"100%";
+    padding: 3px 3px 3px 0;
+    text-align: center;
+    border-collapse: collapse;
 }
