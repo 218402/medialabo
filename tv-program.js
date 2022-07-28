@@ -181,10 +181,6 @@ function showResult(resp) {
         act.textContent = n.act;
         table.insertAdjacentElement('beforeend', act);
 
-      }else if(data===null){
-        let nasi = document.createElement('p');
-        nasi.textContent ='合う情報がありません。';
-        table.insertAdjacentElement('beforeend', nasi);
       }
     }
   }
